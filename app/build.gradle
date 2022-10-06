@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id "com.google.dagger.hilt.android"
+    id "com.google.devtools.ksp" version "1.6.10-1.0.4"
 }
 
 android {
@@ -15,6 +18,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField "String", "TELEGRAM_BOT_TOKEN", "${properties.getProperty("TELEGRAM_BOT_TOKEN")}"
+        buildConfigField "String", "CHAT_ID", "${properties.getProperty("CHAT_ID")}"
     }
 
     buildTypes {
@@ -30,6 +39,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -41,4 +54,25 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation "androidx.work:work-runtime-ktx:$work_version"
+    implementation "androidx.hilt:hilt-work:1.0.0"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+
+    implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
+    implementation "com.squareup.moshi:moshi-adapters:1.14.0"
+    ksp "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    implementation "com.slack.eithernet:eithernet:1.2.1"
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SMS Forwarder</string>
+    <string name="permission_granted">Permission Granted</string>
+    <string name="permission_deny">Permission Deny</string>
 </resources>

@@ -5,10 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Telephony
 import androidx.work.ExistingWorkPolicy
-import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import androidx.work.workDataOf
-import ru.smsforwarder.model.SmsModel
+import ru.smsforwarder.domain.model.SmsModel
 import ru.smsforwarder.workmanager.Constants
 import ru.smsforwarder.workmanager.SendSmsWorker
 
@@ -19,7 +17,13 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
 
         val extractMessages = Telephony.Sms.Intents.getMessagesFromIntent(intent)
         val sms = extractMessages.map { smsMessage ->
-            SmsModel(smsMessage.displayMessageBody, smsMessage.displayOriginatingAddress)
+            with(smsMessage) {
+                SmsModel(
+                    text = displayMessageBody,
+                    address = displayOriginatingAddress,
+                    timestamp = timestampMillis
+                )
+            }
         }
 
         sms.forEach { sendSms(context, it) }
