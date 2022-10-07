@@ -20,4 +20,4 @@ Channel is more convenient than private chat. This way, you can create different
 
 ## Pre-build settings
 
-Set variables TELEGRAM_API_TOKEN and CHAT_ID into local.properties. You can get the Telegram Bot token through @BotFather. Also, you should create Telegram Channel and add a bot to it as admin.
+Set variables `TELEGRAM_API_TOKEN` and `CHAT_ID` into `local.properties`. You can get the Telegram Bot token through [@BotFather](https://t.me/BotFather). Also, you should create Telegram Channel and add a bot to it as admin.
