@@ -10,7 +10,7 @@ If you are abroad, you may have problems receiving your SMS (or part of them, e.
 To start, you have to do the steps below:
 
 1. Set the SIM card to a device that you leave at home.
-2. Create a Telegram bot and channel.
+2. [Create a Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot) and channel.
 3. Build and install APK to the device.
 4. Open the app and block the device (don't minimize the application).
 
