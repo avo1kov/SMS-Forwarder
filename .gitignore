@@ -13,3 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+.idea
+gradlew
+gradlew.bat
+gradle/wrapper/
+/.project
+/app/release/
+/build-cache
+*/build
+*/*/build
+*/*/*/build
+*/*/*/*/build
