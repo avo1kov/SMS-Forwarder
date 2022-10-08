@@ -21,3 +21,7 @@ Channel is more convenient than private chat. This way, you can create different
 ## Pre-build settings
 
 Set variables `TELEGRAM_API_TOKEN` and `CHAT_ID` into `local.properties`. You can get the Telegram Bot token through [@BotFather](https://t.me/BotFather). Also, you should create Telegram Channel and add a bot to it as admin.
+
+## Run in background
+
+There can be some troubles with the stable app working in the background. It would be best if you researched how to prevent suspending the app on your specific device. There are various ways for different devices and different vendors. You can find some guides at [https://dontkillmyapp.com](https://dontkillmyapp.com).
